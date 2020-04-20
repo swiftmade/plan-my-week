@@ -9,6 +9,7 @@
     "start": "npm run dev",
     "unit": "jest --config test/unit/jest.conf.js",
     "test": "npm run unit",
+    "test:watch": "jest --watch --config test/unit/jest.conf.js",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js"
   },
@@ -21,6 +22,7 @@
     "vuex-persist": "^2.2.0"
   },
   "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.33",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^8.2.1",
