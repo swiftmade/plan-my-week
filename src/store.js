@@ -42,10 +42,10 @@ export const getters = {
     return days
   },
 
-  scheduledHoursByDay (state, getters) {
-    return getters.days.map(dayIndex => {
-      return state.workingHours - state.projects.reduce((hours, project) => {
-        hours += project.schedule[dayIndex]
+  scheduledHoursByDay (state) {
+    return Array(7).fill(0).map((_, dayIndex) => {
+      return parseInt(state.workingHours) - state.projects.reduce((hours, project) => {
+        hours += parseInt(project.schedule[dayIndex])
         return hours
       }, 0)
     })

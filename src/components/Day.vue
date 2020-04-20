@@ -1,7 +1,9 @@
 <template>
     <div class="flex-1 mx-2 p-4">
-        <div class="mb-4">{{ name }}</div>
-
+        <div class="mb-1">{{ name }}</div>
+        <div class="text-xs text-gray-600 mb-4">
+        🕒 {{ workingHours - remaining }} / {{ workingHours }}
+        </div>
         <day-item
             v-for="(project, i) in projects"
             v-show="project.schedule[day]"
@@ -11,10 +13,6 @@
             @dblclick.native="scheduleProject(i, 0)"
             @increase="scheduleProject(i, project.schedule[day] + 1)"
             @decrease="project.schedule[day] > 1 ? scheduleProject(i, project.schedule[day] - 1) : null" />
-
-        <div class="text-xs text-gray-600">
-        🕒 {{ workingHours - remaining }} / {{ workingHours }}
-        </div>
 
         <ul>
             <li v-for="(item, i) in unscheduledHoursPerProject" :key="i">
