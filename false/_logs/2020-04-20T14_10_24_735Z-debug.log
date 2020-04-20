@@ -1,0 +1,38 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/aozisik/.nvm/versions/node/v10.16.3/bin/node',
+1 verbose cli   '/Users/aozisik/.nvm/versions/node/v10.16.3/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'test',
+1 verbose cli   '--no-cache' ]
+2 info using npm@6.14.4
+3 info using node@v10.16.3
+4 verbose run-script [ 'pretest', 'test', 'posttest' ]
+5 info lifecycle plan-my-week@1.0.0~pretest: plan-my-week@1.0.0
+6 info lifecycle plan-my-week@1.0.0~test: plan-my-week@1.0.0
+7 verbose lifecycle plan-my-week@1.0.0~test: unsafe-perm in lifecycle true
+8 verbose lifecycle plan-my-week@1.0.0~test: PATH: /Users/aozisik/.nvm/versions/node/v10.16.3/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/Users/aozisik/Documents/Code/plan-my-week/node_modules/.bin:/usr/local/opt/php@7.2/sbin:/usr/local/opt/php@7.2/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/Users/aozisik/.nvm/versions/node/v10.16.3/bin:/Users/aozisik/.composer/vendor/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/Caskroom/android-sdk/4333796/tools:/usr/local/Caskroom/android-sdk/4333796/platform-tools
+9 verbose lifecycle plan-my-week@1.0.0~test: CWD: /Users/aozisik/Documents/Code/plan-my-week
+10 silly lifecycle plan-my-week@1.0.0~test: Args: [ '-c', 'npm run unit' ]
+11 silly lifecycle plan-my-week@1.0.0~test: Returned: code: 1  signal: null
+12 info lifecycle plan-my-week@1.0.0~test: Failed to exec test script
+13 verbose stack Error: plan-my-week@1.0.0 test: `npm run unit`
+13 verbose stack Exit status 1
+13 verbose stack     at EventEmitter.<anonymous> (/Users/aozisik/.nvm/versions/node/v10.16.3/lib/node_modules/npm/node_modules/npm-lifecycle/index.js:332:16)
+13 verbose stack     at EventEmitter.emit (events.js:198:13)
+13 verbose stack     at ChildProcess.<anonymous> (/Users/aozisik/.nvm/versions/node/v10.16.3/lib/node_modules/npm/node_modules/npm-lifecycle/lib/spawn.js:55:14)
+13 verbose stack     at ChildProcess.emit (events.js:198:13)
+13 verbose stack     at maybeClose (internal/child_process.js:982:16)
+13 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:259:5)
+14 verbose pkgid plan-my-week@1.0.0
+15 verbose cwd /Users/aozisik/Documents/Code/plan-my-week
+16 verbose Darwin 19.3.0
+17 verbose argv "/Users/aozisik/.nvm/versions/node/v10.16.3/bin/node" "/Users/aozisik/.nvm/versions/node/v10.16.3/bin/npm" "run" "test" "--no-cache"
+18 verbose node v10.16.3
+19 verbose npm  v6.14.4
+20 error code ELIFECYCLE
+21 error errno 1
+22 error plan-my-week@1.0.0 test: `npm run unit`
+22 error Exit status 1
+23 error Failed at the plan-my-week@1.0.0 test script.
+23 error This is probably not a problem with npm. There is likely additional logging output above.
+24 verbose exit [ 1, true ]
