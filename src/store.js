@@ -154,6 +154,10 @@ export const mutations = {
 
   deleteProject (state, index) {
     state.projects.splice(index, 1)
+  },
+
+  reset (state) {
+    Object.assign(state, getDefaultState())
   }
 }
 

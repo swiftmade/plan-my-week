@@ -14,6 +14,14 @@
         <list-projects :projects="projects" @input="projects = arguments[0]" />
 
         <a href="#" role="button" class="mt-2 text-blue-500 text-xs font-bold" @click="addProject()">+ Add Project</a>
+
+        <br />
+        <br />
+        <br />
+
+        <a href="#" @click="reset()" class="text-xs text-red-400">
+        Reset all data
+        </a>
       </div>
 
       <schedule class="flex-1" />
@@ -23,6 +31,7 @@
 </template>
 <script>
 import {mapState} from 'vuex'
+import { MessageBox } from 'element-ui'
 import OffDays from './components/OffDays'
 import Schedule from './components/Schedule'
 import WorkingHours from './components/WorkingHours'
@@ -45,6 +54,15 @@ export default {
   methods: {
     addProject () {
       this.$store.commit('newProject')
+    },
+    reset () {
+      MessageBox.confirm('Do you really want to reset all app data?')
+        .then(() => {
+          this.$store.commit('reset')
+        })
+        .catch(() => {
+          // Do nothing
+        })
     }
   }
 }
