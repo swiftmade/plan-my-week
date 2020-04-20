@@ -100,6 +100,15 @@ export const getters = {
 export const mutations = {
   toggleOffDay (state, day) {
     state.offtime[day] = !state.offtime[day]
+
+    // If off-time is turned on, clear schedules of that day
+    if (state.offtime[day]) {
+      const dayIndex = day === 'saturday' ? 5 : 6
+      state.projects = state.projects.map((project) => {
+        project.schedule[dayIndex] = 0
+        return project
+      })
+    }
   },
 
   updateWorkingHours (state, value) {
