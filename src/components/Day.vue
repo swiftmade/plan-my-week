@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-1 mx-2 p-4">
+    <div class="flex-1 mx-1s p-4">
         <div class="mb-1">{{ name }}</div>
         <div class="text-xs text-gray-600 mb-4">
         🕒 {{ workingHours - remaining }} / {{ workingHours }}

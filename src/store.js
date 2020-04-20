@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import VuexPersistence from 'vuex-persist'
 
+import {sum} from 'lodash'
+
 const vuexLocal = new VuexPersistence({
   storage: window.localStorage
 })
@@ -44,10 +46,9 @@ export const getters = {
 
   scheduledHoursByDay (state) {
     return Array(7).fill(0).map((_, dayIndex) => {
-      return parseInt(state.workingHours) - state.projects.reduce((hours, project) => {
-        hours += parseInt(project.schedule[dayIndex])
-        return hours
-      }, 0)
+      return parseInt(state.workingHours) - sum(state.projects.map(
+        project => project.schedule[dayIndex]
+      ))
     })
   },
 
@@ -63,10 +64,7 @@ export const getters = {
 
   hoursPerProject (state, getters) {
     const fixedProjects = state.projects.filter(project => project.hours)
-    const numFixedHours = fixedProjects.reduce((total, project) => {
-      total += parseInt(project.hours)
-      return total
-    }, 0)
+    const numFixedHours = sum(fixedProjects.map(project => project.hours))
 
     const numFlexHours = (getters.numWorkHours - numFixedHours)
     const numFlexibleProjects = (state.projects.length - fixedProjects.length)
@@ -82,10 +80,7 @@ export const getters = {
 
   unscheduledHoursPerProject (state, getters) {
     return getters.hoursPerProject.map((hours, index) => {
-      const scheduled = state.projects[index].schedule.reduce((total, hours) => {
-        total += hours
-        return total
-      }, 0)
+      const scheduled = sum(state.projects[index].schedule)
 
       return {
         index: index,
@@ -125,6 +120,10 @@ export const mutations = {
   },
 
   updateProject (state, {index, prop, value}) {
+    if (prop === 'hours') {
+      value = !value ? 0 : parseInt(value)
+      value = isNaN(value) ? 0 : value
+    }
     state.projects[index][prop] = value
   },
 
@@ -145,6 +144,16 @@ export const mutations = {
       ...project,
       schedule
     })
+
+    const totalHours = sum(state.projects[index].schedule)
+
+    if (totalHours > state.projects[index].hours) {
+      state.projects[index].hours = totalHours
+    }
+  },
+
+  deleteProject (state, index) {
+    state.projects.splice(index, 1)
   }
 }
 

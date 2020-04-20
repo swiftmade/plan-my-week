@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-        <div class="flex justify-between -mx-2" style="min-height:400px">
+        <div class="flex justify-between -mx-1" style="min-height:400px">
           <day v-for="index in days"
             :key="index"
             :day="index"

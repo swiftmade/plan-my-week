@@ -16,7 +16,7 @@ export default {
     }
   },
   mounted () {
-    this.handleMove = throttle(this.handleMove.bind(this), 150)
+    this.handleMove = throttle(this.handleMove.bind(this), 50)
   },
   methods: {
     startDrag () {
