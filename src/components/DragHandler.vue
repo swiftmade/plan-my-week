@@ -9,7 +9,6 @@ import Vue from 'vue'
 import throttle from 'lodash.throttle'
 
 export default {
-  props: ['target'],
   data () {
     return {
       dragging: false,

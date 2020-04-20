@@ -7,7 +7,6 @@
             </div>
 
         <drag-handler
-          :target="$el"
           @increase="$emit('increase')"
           @decrease="$emit('decrease')" />
     </div>
