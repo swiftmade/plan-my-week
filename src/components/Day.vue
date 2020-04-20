@@ -18,7 +18,7 @@
 
         <ul>
             <li v-for="(item, i) in unscheduledHoursPerProject" :key="i">
-                <a href="#" class="text-xs text-gray-500" @click="scheduleProject(item.index, item.hours)">+ {{item.project.name}} ({{ parseInt(item.hours) }})</a>
+                <a href="#" class="text-xs text-gray-500" @click="appendProject(item.index, item.hours)">+ {{item.project.name}} ({{ parseInt(item.hours) }})</a>
             </li>
         </ul>
     </div>
@@ -48,6 +48,11 @@ export default {
         hours,
         dayIndex: this.day
       })
+    },
+
+    appendProject (index, hours) {
+      const currentHours = this.projects[index].schedule[this.day]
+      this.scheduleProject(index, currentHours + hours)
     }
   }
 }
