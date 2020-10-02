@@ -4,7 +4,7 @@
 
     <div class="flex">
 
-      <div class="mr-16" style="width:250px !important;">
+      <div class="mr-16" style="width:250px !important; min-width: 250px;">
 
         <off-days />
 
