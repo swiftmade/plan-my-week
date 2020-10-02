@@ -1,9 +1,6 @@
 <template>
     <div class="flex-1 mx-1s p-4" style="min-width: 208px;">
-        <div class="mb-1">{{ name }}</div>
-        <div class="text-xs text-gray-600 mb-4">
-        🕒 {{ workingHours - remaining }} / {{ workingHours }}
-        </div>
+        <div class="mb-1">{{ name }} <span class="text-xs text-gray-600 mb-4">🕒 {{ workingHours - remaining }} / {{ workingHours }}</span></div>
         <day-item
             v-for="(project, i) in projects"
             v-show="project.schedule[day]"
