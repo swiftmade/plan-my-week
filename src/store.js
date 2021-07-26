@@ -1,14 +1,12 @@
 import Vue from "vue";
 import Vuex from "vuex";
-// import VuexPersistence from "vuex-persist";
+import VuexPersistence from "vuex-persist";
 
 import { sum } from "lodash";
 
-/*
 const vuexLocal = new VuexPersistence({
   storage: window.localStorage,
 });
-*/
 
 Vue.use(Vuex);
 
@@ -166,7 +164,7 @@ export const mutations = {
 };
 
 const store = new Vuex.Store({
-  // plugins: [vuexLocal.plugin],
+  plugins: [vuexLocal.plugin],
   state: getDefaultState(),
   getters,
   mutations,
