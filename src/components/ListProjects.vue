@@ -2,17 +2,33 @@
   <div>
     <ul v-for="(project, i) in projects" :key="i">
       <li class="flex my-2 relative">
-        <div class="absolute" style="left:-26px;top:3px;">
-          <a href="#" @click="deleteProject(i)"><i class="el-icon-delete text-gray-300"></i></a>
+        <div class="absolute" style="left: -26px; top: 3px">
+          <a href="#" @click="deleteProject(i)"
+            ><i class="el-icon-delete text-gray-300"></i
+          ></a>
         </div>
         <div class="mr-2">
-          <el-color-picker :value="project.color" size="mini" @input="updateProjectAtIndex(i, 'color', arguments[0])" />
+          <el-color-picker
+            :value="project.color"
+            size="mini"
+            @input="updateProjectAtIndex(i, 'color', arguments[0])"
+          />
         </div>
         <div class="flex-1 mr-2">
-          <el-input :value="project.name" size="mini" @input="updateProjectAtIndex(i, 'name', arguments[0])" />
+          <el-input
+            :value="project.name"
+            size="mini"
+            @input="updateProjectAtIndex(i, 'name', arguments[0])"
+          />
         </div>
         <div>
-          <el-input style="width:50px" :placeholder="hoursPerProject[i]" :value="project.hours"  size="mini" @input="updateProjectAtIndex(i, 'hours', arguments[0])" />
+          <el-input
+            style="width: 50px"
+            :placeholder="hoursPerProject[i]"
+            :value="project.hours"
+            size="mini"
+            @input="updateProjectAtIndex(i, 'hours', arguments[0])"
+          />
         </div>
       </li>
     </ul>
@@ -20,30 +36,28 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from "vuex";
 export default {
-  props: [
-    'projects'
-  ],
+  props: ["projects"],
   computed: {
-    ...mapGetters(['hoursPerProject'])
+    ...mapGetters(["hoursPerProject"]),
   },
-  data () {
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+      msg: "Welcome to Your Vue.js App",
+    };
   },
   methods: {
-    deleteProject (index) {
-      this.$store.commit('deleteProject', index)
+    deleteProject(index) {
+      this.$store.commit("deleteProject", index);
     },
-    updateProjectAtIndex (index, prop, value) {
-      this.$store.commit('updateProject', {
+    updateProjectAtIndex(index, prop, value) {
+      this.$store.commit("updateProject", {
         index,
         prop,
-        value
-      })
-    }
-  }
-}
+        value,
+      });
+    },
+  },
+};
 </script>
